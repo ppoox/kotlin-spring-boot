@@ -1,6 +1,6 @@
 package com.example.mvc.controller.get
 
-import com.example.mvc.controller.get.model.http.UserRequest
+import com.example.mvc.model.http.UserRequest
 import org.springframework.web.bind.annotation.*
 
 @RestController     // REST API Controller 동작
@@ -14,7 +14,7 @@ class GetApiController {
 
     @RequestMapping(method = [RequestMethod.GET], path = ["/request-mapping"])
     fun requestMapping(): String {
-        return "request-mapping";
+        return "request-mapping"
     }
 
     @GetMapping("/get-mapping/path-variable/{name}/{age}")
@@ -25,8 +25,6 @@ class GetApiController {
 
     @GetMapping("/get-mapping/path-variable2/{name}/{age}")
     fun pathVariable2(@PathVariable(value = "name") _name: String, @PathVariable(name = "age") age: Int): String {
-        val name = "kotlin"
-
         println("${_name}, ${age}")
         return "$_name $age"
     }
